@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
                 },
                 {
                     model: Comment,
-                    attributes: ['body', 'date_created'],
+                    attributes: ['id', 'body', 'date_created'],
                     include: [
                         {
                             model: User,
@@ -52,8 +52,10 @@ router.get('/:id', async (req, res) => {
             ],
         });
         const post = postData.get({ plain: true });
+        // Shows the latest comments first
+        post.comments.reverse();
         
-        // console.log(post);
+        console.log(post);
         res.render('post', {post})
     } catch (err) {
         res.status(500).json(err);
