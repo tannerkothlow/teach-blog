@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const { User, Post } = require('../models');
 
+// /
+// GET: gets all comments
+
 router.get('/', async (req, res) => {
     try {
         const postData = await Post.findAll({
@@ -13,7 +16,7 @@ router.get('/', async (req, res) => {
         });
         const posts = postData.map((posts) => posts.get({ plain: true }));
 
-        console.log(posts);
+        // console.log(posts);
 
         res.render('home', {posts})
     } catch (err) {
@@ -22,6 +25,3 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
-
-// /
-// GET: gets all comments
