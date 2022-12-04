@@ -1,0 +1,2 @@
+// /
+// GET: gets all comments
