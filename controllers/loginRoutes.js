@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err)
     }
-})
+});
 
 // POST: logs in
 
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
             res.status(200).json({ message: 'You are now logged in!' })
         });
     } catch (err) {
-
+        res.status(500).json(err);
     }
 })
 
