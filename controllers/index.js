@@ -4,7 +4,7 @@ const loginRoutes = require('./loginRoutes');
 const postRoutes = require('./postRoutes');
 const registerRoutes = require('./registerRoutes');
 
-router.use('/home', homeRoutes);
+router.use('/', homeRoutes);
 router.use('/login', loginRoutes);
 router.use('/post', postRoutes);
 router.use('/register', registerRoutes);
