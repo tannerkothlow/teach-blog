@@ -8,6 +8,12 @@
 
 <p>Comments</p>
 
+<form id="comment-form">
+    <label for="body">Comment:</label><br>
+    <input type="text" id="body" name="body"><br>
+    <input type="submit" value="Submit">
+</form>
+
 {{#each post.comments as |comment|}}
 
 <p>{{comment.user.username}}</p>
