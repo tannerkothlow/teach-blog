@@ -55,3 +55,19 @@ header {
     margin-top: -10px;
     margin-bottom: 10px;
 }
+
+.cred-box {
+    margin-left: 40%;
+    margin-top: 50px;
+}
+
+#login-button,
+#reg-button {
+    margin-top: 10px;
+}
+
+#login-button:hover,
+#reg-button:hover {
+    color: rgb(41, 41, 41);
+    background-color: rgb(175, 175, 175);
+}
