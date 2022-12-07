@@ -2,18 +2,21 @@
 <a href="/post">+ New Post</a>
 </div>
 
+<div id="home-post-box">
 {{#each posts as |post|}}
 
 <div class="home-post">
 
+<div class="post-header">
 <a href="./post/{{post.id}}">{{post.title}}</a>
-
-<p>{{post.user.username}}</p>
-
 <p>{{post.date_created}}</p>
+</div>
 
-<p>{{post.description}}</p>
+<p class="post-username">{{post.user.username}}</p>
+
+<p class="post-body">{{post.description}}</p>
 
 </div>
 
 {{/each}}
+</div>
