@@ -1,3 +1,4 @@
+{{#if posts}}
 <div id="new-post-button">
 <a href="/post">+ New Post</a>
 </div>
@@ -20,3 +21,6 @@
 
 {{/each}}
 </div>
+{{else}}
+<p>You haven't made any posts yet!</p>
+{{/if}}
