@@ -17,10 +17,10 @@ router.get('/', async (req, res) => {
         const posts = postData.map((posts) => posts.get({ plain: true }));
 
         // console.log(posts);
-
-        res.render('home', {posts})
+        posts.reverse();
+        res.render('home', {posts});
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
 });
 

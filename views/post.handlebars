@@ -1,25 +1,36 @@
+<div class="one-post-box">
+<div class="one-post">
+
 <h2>{{post.title}}</h2>
 
+<div id="post-sidebar">
 <p>{{post.user.username}}</p>
-
 <p>{{post.date_created}}</p>
+</div>
 
-<p>{{post.description}}</p>
+<p class="one-post-body">{{post.description}}</p>
 
-<p>Comments</p>
+</div>
 
 <form id="comment-form">
-    <label for="body">Comment:</label><br>
-    <input type="text" id="body" name="body"><br>
-    <input type="submit" value="Submit">
+    <label for="comment-body">Leave a Comment:</label><br>
+    <textarea type="text" id="comment-body" name="body"></textarea><br>
+    <input id="comment-button" type="submit" value="Submit">
 </form>
 
+<p class="comment-divider">Comments</p>
+
+<div class="comment">
 {{#each post.comments as |comment|}}
-
+<div class="single-comment">
+<div class="comment-header">
 <p>{{comment.user.username}}</p>
-
 <p>{{comment.date_created}}</p>
+</div>
 
-<p>{{comment.body}}</p>
-
+<p class="comment-content">{{comment.body}}</p>
+</div>
 {{/each}}
+</div>
+
+</div>
