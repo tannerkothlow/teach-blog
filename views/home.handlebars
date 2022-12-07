@@ -1,3 +1,13 @@
+<a href="/post">+ New Post</a>
+
 {{#each posts as |post|}}
+
+<a href="./post/{{post.id}}">{{post.title}}</a>
+
+<p>{{post.user.username}}</p>
+
+<p>{{post.date_created}}</p>
+
+<p>{{post.description}}</p>
 
 {{/each}}
