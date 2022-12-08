@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['username'],
+                    attributes: ['id', 'username'],
                 },
                 {
                     model: Comment,
@@ -54,8 +54,11 @@ router.get('/:id', async (req, res) => {
         const post = postData.get({ plain: true });
         // Shows the latest comments first
         post.comments.reverse();
+
+        if (post.user.id == req.session.user_id) {
+            console.log(`This post belongs to the logged in user!`)
+        };
         
-        console.log(post);
         res.render('post', {post})
     } catch (err) {
         res.status(500).json(err);
