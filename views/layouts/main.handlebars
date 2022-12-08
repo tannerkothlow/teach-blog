@@ -13,7 +13,7 @@
   <h1><a href="/">Tech Blog</a></h1>
   <a href="/">Home</a>
   <a href="/dashboard">Dashboard</a>
-  {{#if req.session.logged_in}}
+  {{#if session.logged_in}}
   <p id="logout-button">Log Out</p>
   {{else}}
   <a href="/login">Login</a>

@@ -14,6 +14,10 @@ const logout = async () => {
     }
 };
 
+// const logout = () => {
+//     console.log('log out attempted');
+// }
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -30,16 +34,22 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert(response.message);
+            alert('Incorrect email or password, please try again' );
         }
     }
 };
   
-  document
+// Login Form Listener
+if (document.querySelector('#login-form')) {
+    document
     .querySelector('#login-form')
     .addEventListener('submit', loginFormHandler);
+}
   
-  document
-    .querySelector('#logout')
+// Logout button listener
+if (document.querySelector('#logout-button')) {
+    document
+    .querySelector('#logout-button')
     .addEventListener('click', logout);
+}
   

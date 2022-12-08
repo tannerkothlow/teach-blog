@@ -4,15 +4,15 @@ const { User, Post } = require('../models');
 router.get('/', async (req, res) => {
     try {
         
-    // if (!req.session.logged_in) {
-    //     res.redirect('/login');
-    //     return;
-    // }
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
 
     const userPosts = await Post.findAll({
         where: {
-            // id: req.session.user_id
-            user_id: 1,
+            user_id: req.session.user_id
+            // user_id: 1,
         },
     });
 
