@@ -134,15 +134,41 @@ const editPost = () => {
     document.getElementById('new-post-title').value = oldTitle;
     document.getElementById('new-post-body').value = oldDescription;
 
+    // Attach event listener when HTML is spawned
+    document
+        .querySelector('#edit-post-form')
+        .addEventListener('submit', updatePost);
+
+    // Removes the edit buttons, comment entry field, and the post itself from page while editing
     document.querySelector('.one-post').remove();
     document.querySelector('#comment-form').remove();
     document.querySelector('#users-post-container').remove();
 };
 
 // Put request to update post
-const updatePost = (event) => {
-    
-}
+const updatePost = async (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector('#new-post-title').value.trim();
+    const description = document.querySelector('#new-post-body').value.trim();
+
+    // Gets the current post's id from the URL
+    const currentPostUrlID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+    if (title && description) {
+        const response = await fetch(`/post/${currentPostUrlID}`, {
+            method: 'PUT',
+            body: JSON.stringify({ title, description }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            location.reload();
+        } else {
+            alert('Oops! Something went wrong.')
+        }
+    }
+};
 
 
 const deletePost = async (event) => {
@@ -205,8 +231,6 @@ if (document.querySelector('#user-edit-button')) {
         .addEventListener('click', editPost);
 }
 
-// Post edit submit listener
-// if (document...)
 
 // Delete button listener
 if (document.querySelector('#user-delete-button')) {
