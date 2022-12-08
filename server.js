@@ -26,13 +26,13 @@ const sess = {
 };
 
 app.use(session(sess));
-// 
-// app.use(session(options));
-    app.use(function (req, res, next) {
-        res.locals.session = req.session;
-        next();
-    });
-// 
+
+// Bit of middleware that lets handlebars use req.session.logged_in
+app.use(function (req, res, next) {
+  res.locals.session = req.session;
+  next();
+});
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

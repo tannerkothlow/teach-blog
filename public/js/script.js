@@ -36,6 +36,28 @@ const loginFormHandler = async (event) => {
         }
     }
 };
+
+const newUser = async (event) => {
+    event.preventDefault();
+
+    const username = document.querySelector('#username').value.trim();
+    const email = document.querySelector('#email').value.trim();
+    const password = document.querySelector('#password').value.trim();
+
+    if (username && email && password) {
+        const response = await fetch('/register', {
+            method: 'POST',
+            body: JSON.stringify({ username, email, password }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Oops! Something went wrong.')
+        }
+    }
+};
   
 // New post call
 const newPost = async (event) => {
@@ -111,4 +133,10 @@ if (document.querySelector('#comment-form')) {
     document
         .querySelector('#comment-form')
         .addEventListener('submit', newComment);
+}
+
+if (document.querySelector('#register-form')) {
+    document
+        .querySelector('#register-form')
+        .addEventListener('submit', newUser);
 }

@@ -8,7 +8,7 @@ const { User, Post, Comment } = require('../models');
 
 // router.get('/', withAuth, async (req, res) => {
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     res.render('new-post')
 });
 
@@ -62,7 +62,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id', async (req, res) => {
+router.post('/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.create({
             body: req.body.body,
