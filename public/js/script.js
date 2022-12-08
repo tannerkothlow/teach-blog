@@ -61,6 +61,30 @@ const newPost = async (event) => {
     }
 };
 
+// New comment call
+const newComment = async (event) => {
+    event.preventDefault();
+
+    const body = document.querySelector('#comment-body').value.trim();
+
+    // Gets the current post's id from the URL
+    const currentPostUrlID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+    if (body) {
+        const response = await fetch(`/post/${currentPostUrlID}`, {
+            method: 'POST',
+            body: JSON.stringify({ body }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            location.reload();
+        } else {
+            alert('Oops! Something went wrong.')
+        }
+    }
+};
+
 // Login Form Listener
 if (document.querySelector('#login-form')) {
     document
@@ -82,3 +106,9 @@ if (document.querySelector('#new-post-form')) {
         .addEventListener('submit', newPost);
 }
   
+// New comment listener
+if (document.querySelector('#comment-form')) {
+    document
+        .querySelector('#comment-form')
+        .addEventListener('submit', newComment);
+}
