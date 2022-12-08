@@ -12,8 +12,8 @@ const postdata = [
     user_id: 1,
   },
   {
-    title: 'yeah im greg',
-    description: 'Greg gregson yeaaah',
+    title: `Greg's Greg-tastic Post`,
+    description: 'Greg gregson yeaaah B)',
     user_id: 2,
   },
 ];

@@ -183,7 +183,8 @@ header h1 a {
     margin-left: 15%;
 }
 
-#new-post-form {
+#new-post-form,
+#edit-post-form {
     width: 80%;
 }
 

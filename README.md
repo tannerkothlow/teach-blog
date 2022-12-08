@@ -2,9 +2,7 @@
 
 ## TO DO /short term
 
-- Implement users being able to delete their posts
-
-- Implement users being able to edit their posts.
+- fix stylling when editing post
 
 ## DONE
 
@@ -35,3 +33,7 @@
 - Redirect on the front end after posts and after logging in/registering
 
 - Add delete and edit options that appear only when the post's user id matches the user id of the logged in user.
+
+- Implement users being able to delete their posts
+
+- Implement users being able to edit their posts.
