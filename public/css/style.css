@@ -60,6 +60,22 @@ header h1 a {
     margin-bottom: 10px;
 }
 
+#users-post-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 3px;
+}
+
+.users-buttons {
+    height: 30px;
+    border: 1px solid rgb(134, 134, 134);
+}
+
+#user-delete-button {
+    margin-left: 4px;
+}
+
 .one-post-box {
     display: flex;
     flex-direction: column;
@@ -144,9 +160,18 @@ header h1 a {
 #login-button:hover,
 #reg-button:hover,
 #comment-button:hover,
-#new-post-submit-button:hover {
+#new-post-submit-button:hover,
+#user-edit-button:hover {
     color: rgb(41, 41, 41);
     background-color: rgb(175, 175, 175);
+    cursor: pointer;
+}
+
+#user-delete-button:hover {
+    background-color: brown;
+    color: rgb(41, 41, 41);
+    border-color: brown;
+    cursor: pointer;
 }
 
 #new-post-button a:hover {
@@ -158,7 +183,8 @@ header h1 a {
     margin-left: 15%;
 }
 
-#new-post-form {
+#new-post-form,
+#edit-post-form {
     width: 80%;
 }
 
@@ -170,4 +196,12 @@ header h1 a {
 #new-post-body {
     width: 100%;
     height: 400px;
+}
+
+#logout-button {
+    text-decoration: underline;
+}
+
+#logout-button:hover {
+    cursor: pointer;
 }

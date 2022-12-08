@@ -4,15 +4,15 @@ const { User, Post } = require('../models');
 router.get('/', async (req, res) => {
     try {
         
-    // if (!req.session.logged_in) {
-    //     res.redirect('/login');
-    //     return;
-    // }
+    if (!req.session.logged_in) {
+        res.redirect('/login');
+        return;
+    }
 
     const userPosts = await Post.findAll({
         where: {
-            // id: req.session.user_id
-            user_id: 1,
+            user_id: req.session.user_id
+            // user_id: 1,
         },
     });
 
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     }
 
     const posts = userPosts.map((posts) => posts.get({ plain: true }));
-
+    posts.reverse();
     res.render('home', {posts});
     } catch (err) {
         res.status(500).json(err);

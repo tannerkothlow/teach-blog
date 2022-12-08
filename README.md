@@ -2,12 +2,7 @@
 
 ## TO DO /short term
 
-- Front end button functionality
-
-- Use front end javascript buttons to call post and get routes.
-
-- Redirect on the front end after posts and after logging in/registering
-(New comments can event default, re-gets the comments)
+- fix stylling when editing post
 
 ## DONE
 
@@ -30,3 +25,15 @@
 - Divs for styling
 
 - Basic styling for app
+
+- Front end button functionality
+
+- Use front end javascript buttons to call post and get routes.
+
+- Redirect on the front end after posts and after logging in/registering
+
+- Add delete and edit options that appear only when the post's user id matches the user id of the logged in user.
+
+- Implement users being able to delete their posts
+
+- Implement users being able to edit their posts.

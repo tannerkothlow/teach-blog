@@ -1,7 +1,14 @@
 <div class="one-post-box">
+    {{#if belongsToUser}}
+        <div id="users-post-container">
+        <button class="users-buttons" id="user-edit-button">Edit</button>
+        <button class="users-buttons" id="user-delete-button">Delete</button>
+        </div>
+    {{/if}}
+<div id="edit-box"></div>
 <div class="one-post">
 
-<h2>{{post.title}}</h2>
+<h2 class="one-post-title">{{post.title}}</h2>
 
 <div id="post-sidebar">
 <p>{{post.user.username}}</p>
@@ -12,11 +19,16 @@
 
 </div>
 
-<form id="comment-form">
-    <label for="comment-body">Leave a Comment:</label><br>
-    <textarea type="text" id="comment-body" name="body"></textarea><br>
-    <input id="comment-button" type="submit" value="Submit">
-</form>
+{{!-- If you can't get withAuth to work correctly, just go for the lazy solution. --}}
+{{#if session.logged_in}}
+    <form id="comment-form">
+        <label for="comment-body">Leave a Comment:</label><br>
+        <textarea type="text" id="comment-body" name="body"></textarea><br>
+        <input id="comment-button" type="submit" value="Submit">
+    </form>
+{{else}}
+    <a href="/login">You need to log in to post comments.</a>
+{{/if}}
 
 <p class="comment-divider">Comments</p>
 
