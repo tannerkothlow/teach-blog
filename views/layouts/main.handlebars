@@ -14,7 +14,7 @@
   <a href="/">Home</a>
   <a href="/dashboard">Dashboard</a>
   {{#if req.session.logged_in}}
-  <p>Log Out</p>
+  <p id="logout-button">Log Out</p>
   {{else}}
   <a href="/login">Login</a>
   {{/if}}
