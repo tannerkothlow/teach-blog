@@ -30,6 +30,7 @@ router.post('/', async (req, res) => {
 // /:id
 // GET: gets post by ID and brings its comments along
 // POST: adds a comment
+// PUT: updates post with same id
 
 router.get('/:id', async (req, res) => {
     try {
@@ -81,7 +82,21 @@ router.post('/:id', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
+
+router.put('/:id', async (req, res) => {
+    try {
+        const userPost = await Post.findByPk(req.params.id);
+        console.log(userPost);
+        userPost.update({
+            title: req.body.title,
+            description: req.body.description,
+        });
+        res.status(200).json(userPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 // Option can only appear if a logged in user is viewing their own post
 // ...or if someone connects to the server using Insomnia, so it's not very secure.
