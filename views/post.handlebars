@@ -1,4 +1,8 @@
 <div class="one-post-box">
+    {{#if belongsToUser}}
+        <button class="users-buttons" id="user-edit-button">Edit</button>
+        <button class="users-buttons" id="user-delete-button">Delete</button>
+    {{/if}}
 <div class="one-post">
 
 <h2>{{post.title}}</h2>

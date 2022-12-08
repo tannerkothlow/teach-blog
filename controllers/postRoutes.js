@@ -57,9 +57,14 @@ router.get('/:id', async (req, res) => {
 
         if (post.user.id == req.session.user_id) {
             console.log(`This post belongs to the logged in user!`)
+
+            const belongsToUser = true;
+            res.render('post', {post, belongsToUser});
+            return;
+        } else {
+            res.render('post', {post});
+            return;
         };
-        
-        res.render('post', {post})
     } catch (err) {
         res.status(500).json(err);
     }
