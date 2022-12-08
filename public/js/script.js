@@ -113,9 +113,37 @@ const newComment = async (event) => {
 // Manipulate web page to edit post.
 const editPost = () => {
     console.log('Edit attempt');
+
+    const oldTitle = document.querySelector('.one-post-title').innerHTML;
+    const oldDescription = document.querySelector('.one-post-body').innerHTML;
+
     // Spawns a text entry field already filled with the user's post.
     // Spawns a submit button that makes the PUT request
+    document.getElementById("edit-box").innerHTML =
+        `
+        <div id="new-post-box">
+        <form id="edit-post-form">
+        <label for="title">Title:</label><br>
+        <input type="text" id="new-post-title" name="title"><br>
+        <label for="description">Blog:</label><br>
+        <textarea type="text" id="new-post-body" name="description"></textarea><br>
+        <input id="new-post-submit-button" type="submit" value="Submit">
+        </form>
+        </div>
+        `;
+    document.getElementById('new-post-title').value = oldTitle;
+    document.getElementById('new-post-body').value = oldDescription;
+
+    document.querySelector('.one-post').remove();
+    document.querySelector('#comment-form').remove();
+    document.querySelector('#users-post-container').remove();
 };
+
+// Put request to update post
+const updatePost = (event) => {
+    
+}
+
 
 const deletePost = async (event) => {
     event.preventDefault();
