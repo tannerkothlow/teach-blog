@@ -1,19 +1,7 @@
 // Handler for all button prompts and post requests, should just need to
 // add functions to buttons, nothing else.
 
-// Logout call
-const logout = async () => {
-    const response = await fetch('/api/logout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
-    }
-};
+
 
 // Login call
 const loginFormHandler = async (event) => {
@@ -37,6 +25,7 @@ const loginFormHandler = async (event) => {
     }
 };
 
+// Register new user call
 const newUser = async (event) => {
     event.preventDefault();
 
@@ -58,7 +47,21 @@ const newUser = async (event) => {
         }
     }
 };
-  
+
+// Logout call
+const logout = async () => {
+    const response = await fetch('/api/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
+    }
+};
+
 // New post call
 const newPost = async (event) => {
     event.preventDefault();
@@ -107,13 +110,45 @@ const newComment = async (event) => {
     }
 };
 
+// Manipulate web page to edit post.
+const editPost = () => {
+    console.log('Edit attempt');
+    // Spawns a text entry field already filled with the user's post.
+    // Spawns a submit button that makes the PUT request
+};
+
+const deletePost = async (event) => {
+    event.preventDefault();
+
+    if (confirm('Are you sure you want to delete this post? This cannot be undone!')) {
+        const currentPostUrlID = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+
+        const response = await fetch(`/post/${currentPostUrlID}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert('Oops! Something went wrong.');
+        }
+    };
+};
+
 // Login Form Listener
 if (document.querySelector('#login-form')) {
     document
         .querySelector('#login-form')
         .addEventListener('submit', loginFormHandler);
 }
-  
+
+// Register form listener
+if (document.querySelector('#register-form')) {
+    document
+        .querySelector('#register-form')
+        .addEventListener('submit', newUser);
+}
+
 // Logout button listener
 if (document.querySelector('#logout-button')) {
     document
@@ -135,8 +170,19 @@ if (document.querySelector('#comment-form')) {
         .addEventListener('submit', newComment);
 }
 
-if (document.querySelector('#register-form')) {
+// Post edit listener
+if (document.querySelector('#user-edit-button')) {
     document
-        .querySelector('#register-form')
-        .addEventListener('submit', newUser);
+        .querySelector('#user-edit-button')
+        .addEventListener('click', editPost);
+}
+
+// Post edit submit listener
+// if (document...)
+
+// Delete button listener
+if (document.querySelector('#user-delete-button')) {
+    document
+        .querySelector('#user-delete-button')
+        .addEventListener('click', deletePost);
 }

@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
         });
         const post = postData.get({ plain: true });
         // Shows the latest comments first
-        post.comments.reverse();
+        // post.comments.reverse();
 
         if (post.user.id == req.session.user_id) {
             console.log(`This post belongs to the logged in user!`)
@@ -84,6 +84,7 @@ router.post('/:id', withAuth, async (req, res) => {
 })
 
 // Option can only appear if a logged in user is viewing their own post
+// ...or if someone connects to the server using Insomnia, so it's not very secure.
 // Add confirmation at the front end
 
 router.delete('/:id', async (req, res) => {
@@ -93,7 +94,7 @@ router.delete('/:id', async (req, res) => {
                 id: req.params.id,
             },
         });
-        
+
         res.status(204).json(deletePost);
     } catch (err) {
         res.status(500).json(err)
