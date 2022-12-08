@@ -173,5 +173,9 @@ header h1 a {
 }
 
 #logout-button {
-    background-color: chartreuse;
+    text-decoration: underline;
+}
+
+#logout-button:hover {
+    cursor: pointer;
 }

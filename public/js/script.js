@@ -1,6 +1,7 @@
 // Handler for all button prompts and post requests, should just need to
 // add functions to buttons, nothing else.
 
+// Logout call
 const logout = async () => {
     const response = await fetch('/api/logout', {
       method: 'POST',
@@ -14,10 +15,7 @@ const logout = async () => {
     }
 };
 
-// const logout = () => {
-//     console.log('log out attempted');
-// }
-
+// Login call
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
@@ -39,17 +37,48 @@ const loginFormHandler = async (event) => {
     }
 };
   
+// New post call
+const newPost = async (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector('#new-post-title').value.trim();
+    const description = document.querySelector('#new-post-body').value.trim();
+
+    if (title && description) {
+        const response = await fetch('/post', {
+            method: 'POST',
+            body: JSON.stringify({ title, description }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        // console.log(response);
+
+        if (response.ok) {
+            document.location.replace(`/dashboard`);
+        } else {
+            alert('Oops! Something went wrong.')
+        }
+    }
+};
+
 // Login Form Listener
 if (document.querySelector('#login-form')) {
     document
-    .querySelector('#login-form')
-    .addEventListener('submit', loginFormHandler);
+        .querySelector('#login-form')
+        .addEventListener('submit', loginFormHandler);
 }
   
 // Logout button listener
 if (document.querySelector('#logout-button')) {
     document
-    .querySelector('#logout-button')
-    .addEventListener('click', logout);
+        .querySelector('#logout-button')
+        .addEventListener('click', logout);
+}
+
+// New post listener
+if (document.querySelector('#new-post-form')) {
+    document
+        .querySelector('#new-post-form')
+        .addEventListener('submit', newPost);
 }
   
