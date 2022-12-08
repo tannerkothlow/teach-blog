@@ -2,11 +2,12 @@
 
 ## TO DO /short term
 
-- Divs for styling
-
-- Basic styling for app
-
 - Front end button functionality
+
+- Use front end javascript buttons to call post and get routes.
+
+- Redirect on the front end after posts and after logging in/registering
+(New comments can event default, re-gets the comments)
 
 ## DONE
 
@@ -25,3 +26,7 @@
 - Created seeds and seeded techblog_db for testing purposes
 
 - Created comment model and its seeds
+
+- Divs for styling
+
+- Basic styling for app
