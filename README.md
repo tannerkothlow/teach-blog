@@ -12,49 +12,49 @@ Application is already deployed to Heroku [here](https://murmuring-mesa-66230.he
 
 -
 
-![login](./project/images/login.png)
+![login](./project/images/login.PNG)
 
 -
 
-![register](./project/images/register.png)
+![register](./project/images/register.PNG)
 
 -
 
-![logged in dashboard](./project/images/logged-in-dashboard.png)
+![logged in dashboard](./project/images/logged-in-dashboard.PNG)
 
 -
 
-![new post](./project/images/new-post.png)
+![new post](./project/images/new-post.PNG)
 
 -
 
-![home after post](./project/images/home-after-post.png)
+![home after post](./project/images/home-after-post.PNG)
 
 -
 
-![new comment](./project/images/new-comment.png)
+![new comment](./project/images/new-comment.PNG)
 
 -
 
-![view comment](./project/images/view-comment.png)
+![view comment](./project/images/view-comment.PNG)
 
 -
 
-![edit buttons](./project/images/edit-buttons.png)
+![edit buttons](./project/images/edit-buttons.PNG)
 
-![editing post](./project/images/editing-post.png)
-
--
-
-![edited post](./project/images/edited-post.png)
+![editing post](./project/images/editing-post.PNG)
 
 -
 
-![delete button](./project/images/delete-button.png)
+![edited post](./project/images/edited-post.PNG)
 
 -
 
-![delete prompt](./project/images/delete-prompt.png)
+![delete button](./project/images/delete-button.PNG)
+
+-
+
+![delete prompt](./project/images/delete-prompt.PNG)
 
 ## License
 
