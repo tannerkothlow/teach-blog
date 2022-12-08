@@ -83,4 +83,21 @@ router.post('/:id', withAuth, async (req, res) => {
     }
 })
 
+// Option can only appear if a logged in user is viewing their own post
+// Add confirmation at the front end
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletePost = await Post.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+        
+        res.status(204).json(deletePost);
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router;
